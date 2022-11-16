@@ -5,114 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27e41be4-b75b-49db-96e6-fff4bf6cf08f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/AgentManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleAgentA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleAgentB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleAgentC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleAgentD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleAgentOne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleAgentTwo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ExampleMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/UserSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/application/Othello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/application/OthelloGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/application/OthelloGameView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/application/OthelloResources.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/application/OthelloSettings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/application/application.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/callbacks/EventCallbackController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/callbacks/EventCallbackView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/AgentMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/AvailableWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/DirectionWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/EndStateWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/Index.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/MoveWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/ObjectiveWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/PossibleMoveWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/TrailWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/capsules/TraversalWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/controllers/Agent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/controllers/AgentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/controllers/GameController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/controllers/IAgentMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/ActionState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/BoardCellState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/BoardCellType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/GameEndState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/GameMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/GameState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/PieceType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/PlayerTurn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/PlayerType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/TraversalCardinal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/enumerations/TraversalDirection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/exceptions/NoSpecifiedAgentException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/exceptions/NotImplementedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/interfaces/IGameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/models/GameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/models/GameBoardCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/models/GameBoardState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/board_texture_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/board_texture_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/eudy_contreras.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/logo_org.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/resources/texture_8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/threading/Buffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/threading/Manager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/threading/Span.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/threading/ThreadManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/threading/ThreadTimer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/threading/TimeSpan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/Animator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/AnimatorListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/FXRepeater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/FXSpan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/FXTimer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/FXValueAnimator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/Interpolator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/Interpolators.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/tooling/SplineInterpolator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/unittest/Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/utilities/GameBoardUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/utilities/GameTreeUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/utilities/TraversalUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameAboutView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameBlurView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameBoardView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameCellView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameInfoView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameLogoView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameMenuView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameMoveIndicator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameOverView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GamePieceView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/GameScoreView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/Tester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/com/eudycontreras/othello/views/application.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/AgentManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleAgentA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleAgentB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleAgentC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleAgentD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleAgentOne.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleAgentTwo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/ExampleMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX Edu/src/main/UserSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eudycontreras/othello/application/OthelloResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eudycontreras/othello/application/OthelloResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/board_texture_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/board_texture_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/board_texture_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/board_texture_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/eudy_contreras.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/eudy_contreras.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/logo_org.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logo_org.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_16.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/res/texture_8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/texture_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +57,8 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Documents\GitHub\da272a_assignments\L1\src\main\resources" />
+      <recent name="C:\Users\gabri\Documents\GitHub\da272a_assignments\L1\src\main\resources\res\res" />
+      <recent name="C:\Users\gabri\Documents\GitHub\da272a_assignments\L1\src\main\resources\res" />
       <recent name="C:\Users\gabri\Documents\GitHub\da272a_assignments\L1\src\main\java\main" />
       <recent name="C:\Users\gabri\Documents\GitHub\da272a_assignments\L1" />
     </key>
