@@ -226,6 +226,7 @@ public class OthelloGameView{
 		if(gameScreen != null){
 			WritableImage writableImage = new WritableImage((int) gameScreen.getWidth(), (int) gameScreen.getHeight());
 			SnapshotParameters parameters = new SnapshotParameters();
+			System.out.println("image:" +writableImage);
 			parameters.setFill(Color.TRANSPARENT);
 			gameScreen.snapshot(parameters, writableImage);
 			overlay.setImage(writableImage);

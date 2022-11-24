@@ -1,7 +1,12 @@
 package com.eudycontreras.othello.application;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.scene.image.Image;
 
+import java.io.File;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 /**
@@ -17,36 +22,39 @@ import java.util.Objects;
  */
 public class OthelloResources {
 
-	public static final String IMAGE_SOURCE_DIRECTORY = "res"; //TODO correct path
+	public static final String IMAGE_SOURCE_DIRECTORY = File.separator + "textures"; //TODO correct path
+
+
+
+	public static final Image LOGO = new Image(loadResource("logo.png"));
 	
-	public static final Image LOGO = new Image(loadResource("res/logo.png"));
+	public static final Image BOARD_TEXTURE_1 = new Image(loadResource("board_texture_1.jpg"));
 	
-	public static final Image BOARD_TEXTURE_1 = new Image(loadResource("res/board_texture_1.jpg"));
+	public static final Image BOARD_TEXTURE_2 = new Image(loadResource("board_texture_2.jpg"));
 	
-	public static final Image BOARD_TEXTURE_2 = new Image(loadResource("res/board_texture_2.jpg"));
-	
-	public static final Image CREATOR_PROFILE = new Image(loadResource("res/eudy_contreras.jpg"));
+	public static final Image CREATOR_PROFILE = new Image(loadResource("eudy_contreras.jpg"));
 	
 	public static final Image TEXTURE[] = new Image[]{
-			new Image(loadResource("res/texture_16.jpg")),
-			new Image(loadResource("res/texture_0.jpg")),
-			new Image(loadResource("res/texture_1.jpg")),
-			new Image(loadResource("res/texture_2.jpg")),
-			new Image(loadResource("res/texture_3.jpg")),
-			new Image(loadResource("res/texture_4.jpg")),
-			new Image(loadResource("res/texture_5.jpg")),
-			new Image(loadResource("res/texture_6.jpg")),
-			new Image(loadResource("res/texture_7.jpg")),
-			new Image(loadResource("res/texture_8.jpg")),
-			new Image(loadResource("res/texture_10.jpg")),
-			new Image(loadResource("res/texture_11.jpg")),
-			new Image(loadResource("res/texture_12.jpg")),
-			new Image(loadResource("res/texture_13.jpg")),
+			new Image(loadResource("texture_16.jpg")),
+			new Image(loadResource("texture_0.jpg")),
+			new Image(loadResource("texture_1.jpg")),
+			new Image(loadResource("texture_2.jpg")),
+			new Image(loadResource("texture_3.jpg")),
+			new Image(loadResource("texture_4.jpg")),
+			new Image(loadResource("texture_5.jpg")),
+			new Image(loadResource("texture_6.jpg")),
+			new Image(loadResource("texture_7.jpg")),
+			new Image(loadResource("texture_8.jpg")),
+			new Image(loadResource("texture_10.jpg")),
+			new Image(loadResource("texture_11.jpg")),
+			new Image(loadResource("texture_12.jpg")),
+			new Image(loadResource("texture_13.jpg")),
 	};
 	
 
 	public static String loadResource(String image) {
-		String url = IMAGE_SOURCE_DIRECTORY + image;
+
+		String url = IMAGE_SOURCE_DIRECTORY + File.separator + image;
 		return url;
 	}
 }

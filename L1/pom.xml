@@ -38,8 +38,14 @@
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
                     <mainClass>main.AgentManager</mainClass>
+
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>

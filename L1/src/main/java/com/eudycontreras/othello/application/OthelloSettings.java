@@ -21,7 +21,7 @@ public class OthelloSettings {
 	public static final String PLAYER_ONE = getPlayerOneName(UserSettings.PLAYER_ONE);
 	public static final String PLAYER_TWO = getPlayerTwoName(UserSettings.PLAYER_TWO);
 	
-	public static final String STYLESHEET = "application.css";
+	public static final String STYLESHEET = "/application.css";
 	public static final String GAME_NAME = "Othello";
 	
 	public static boolean DEBUG_GAME = false;
