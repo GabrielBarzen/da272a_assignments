@@ -15,7 +15,7 @@ import javafx.scene.image.Image;
  */
 public class OthelloResources {
 
-	public static final String IMAGE_SOURCE_DIRECTORY = "com/eudycontreras/othello/resources/";
+	public static final String IMAGE_SOURCE_DIRECTORY = "";
 	
 	public static final Image LOGO = new Image(loadResource("logo.png"));
 	

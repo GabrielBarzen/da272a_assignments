@@ -14,6 +14,7 @@ import com.eudycontreras.othello.threading.TimeSpan;
 import javafx.stage.Stage;
 import main.UserSettings;
 
+
 /**
  * <H2>Created by</h2> Eudy Contreras
  * <h4> Mozilla Public License 2.0 </h4>

@@ -20,7 +20,6 @@ import com.eudycontreras.othello.enumerations.PlayerTurn;
 import com.eudycontreras.othello.enumerations.PlayerType;
 import com.eudycontreras.othello.models.GameBoardCell;
 import com.eudycontreras.othello.models.GameBoardState;
-import com.eudycontreras.othello.threading.ThreadManager;
 import com.eudycontreras.othello.threading.ThreadTimer;
 import com.eudycontreras.othello.threading.ThreadTimer.TimerControl;
 import com.eudycontreras.othello.threading.TimeSpan;

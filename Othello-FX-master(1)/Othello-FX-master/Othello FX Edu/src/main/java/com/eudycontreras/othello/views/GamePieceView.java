@@ -3,12 +3,9 @@ package com.eudycontreras.othello.views;
 import java.util.Random;
 
 import com.eudycontreras.othello.enumerations.PieceType;
-import com.eudycontreras.othello.threading.ThreadManager;
-import com.eudycontreras.othello.threading.TimeSpan;
 
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
-import javafx.application.Platform;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;

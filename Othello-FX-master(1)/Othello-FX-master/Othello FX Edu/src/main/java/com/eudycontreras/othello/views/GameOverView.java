@@ -1,7 +1,6 @@
 package com.eudycontreras.othello.views;
 
 import com.eudycontreras.othello.application.OthelloGameView;
-import com.eudycontreras.othello.application.OthelloSettings;
 import com.eudycontreras.othello.enumerations.PieceType;
 
 import javafx.animation.FadeTransition;
