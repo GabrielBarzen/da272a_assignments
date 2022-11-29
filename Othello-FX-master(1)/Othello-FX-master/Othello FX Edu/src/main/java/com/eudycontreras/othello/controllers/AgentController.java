@@ -106,17 +106,7 @@ public class AgentController {
 	
 	private Agent getAgent(PlayerTurn player){
 		switch(player){
-		case PLAYER_ONE:
-			if(agentOne == null){
-				try {
-					throw new NoSpecifiedAgentException("Agent One has not been specified or it is null, Please specified Agent One");
-				} catch (NoSpecifiedAgentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			return agentOne;
-		case PLAYER_TWO:
+			case PLAYER_TWO:
 			if(agentTwo == null){
 				try {
 					throw new NoSpecifiedAgentException("Agent Two has not been specified or it is null, Please specified Agent Two");

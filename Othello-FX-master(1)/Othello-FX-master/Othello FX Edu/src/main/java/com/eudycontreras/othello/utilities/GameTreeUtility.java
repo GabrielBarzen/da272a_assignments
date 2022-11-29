@@ -133,9 +133,9 @@ public class GameTreeUtility {
 
 	}
 	
-	public static GameBoardState buildDecissionTree(GameBoardState currentState, int treeBuildDepth, int treeBuildTime){
+	public static GameBoardState buildDecisionTree(GameBoardState currentState, int treeBuildDepth, int treeBuildTime){
 		
-		return buildDecissionTree(currentState, currentState, treeBuildDepth, System.currentTimeMillis(), treeBuildTime);
+		return buildDecisionTree(currentState, currentState, treeBuildDepth, System.currentTimeMillis(), treeBuildTime);
 	}
 	
 	
@@ -151,7 +151,7 @@ public class GameTreeUtility {
 				
 				GameBoardState childState = createChildState(root, currentState, move);
 
-				buildDecissionTree(root, childState, buildDepth-1, startTime, treeBuildTime);
+				buildDecisionTree(root, childState, buildDepth-1, startTime, treeBuildTime);
 				
 				currentState.addChildState(childState);
 			}	
@@ -161,7 +161,7 @@ public class GameTreeUtility {
 		
 	}
 	
-	private static GameBoardState buildDecissionTree(GameBoardState root, GameBoardState currentState, int buildDepth, long startTime, int treeBuildTime){	
+	private static GameBoardState buildDecisionTree(GameBoardState root, GameBoardState currentState, int buildDepth, long startTime, int treeBuildTime){
 		
 		increaseCounters();
 		
@@ -190,7 +190,7 @@ public class GameTreeUtility {
 
 						GameBoardState childState = createChildState(root, currentState, move);
 
-						buildDecissionTree(root, childState, buildDepth-1, startTime, treeBuildTime);
+						buildDecisionTree(root, childState, buildDepth-1, startTime, treeBuildTime);
 						
 						currentState.addChildStates(childState);
 					}	

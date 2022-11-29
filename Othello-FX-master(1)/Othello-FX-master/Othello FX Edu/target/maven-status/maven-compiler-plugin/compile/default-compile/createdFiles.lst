@@ -144,4 +144,5 @@ main\ExampleAgentOne.class
 com\eudycontreras\othello\models\GameBoardCell$1.class
 com\eudycontreras\othello\tooling\AnimatorListener.class
 com\eudycontreras\othello\models\GameBoardState$2.class
+main\AlphaBetaAgent.class
 com\eudycontreras\othello\threading\ThreadTimer$TimerControl.class
