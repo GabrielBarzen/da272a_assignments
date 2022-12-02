@@ -53,11 +53,11 @@ public class AlphaBetaAgent extends Agent{
 
 		}
 
-		int depth = 5;
+		int depth = 6;
 		GameBoardState dt = GameTreeUtility.buildDecisionTree(gameState,depth,2500);
 		GameTreeUtility.printBoard(dt.getCells());
-		int outAlfa = alfabetagrej(dt, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
-		//int outAlfa = abp(dt,depth,Integer.MIN_VALUE,Integer.MAX_VALUE,true);
+		//int outAlfa = alfabetagrej(dt, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
+		int outAlfa = abp(dt,depth,Integer.MIN_VALUE,Integer.MAX_VALUE,true);
 		MoveWrapper wrap = null;
 		for (GameBoardState childState : gameState.getChildStates()) {
 			System.out.println(childState.getBlackCount() + " == " + outAlfa);
@@ -78,10 +78,11 @@ public class AlphaBetaAgent extends Agent{
 
 
 	private int abp (GameBoardState gbs, int depth, int alpha, int beta, boolean max) {
-		System.out.println("Depth is : " + depth);
+//		System.out.println("Depth is : " + depth);
 		if (depth == 0 || gbs.isTerminal()) {
-			System.out.println("no, it is working, promise");
-			System.out.println("num black :" + gbs.getBlackCount());
+//			System.out.println("no, it is working, promise");
+//			System.out.println("num black :" + gbs.getBlackCount());
+			System.out.println("num black : " + gbs.getBlackCount() + ", depth :" + depth );
 			return gbs.getBlackCount();
 		}
 		int value = max ? Integer.MIN_VALUE : Integer.MAX_VALUE;
@@ -98,13 +99,13 @@ public class AlphaBetaAgent extends Agent{
 					break;
 				}
 			}
-			if (max) {
+			if (!max) {
 				alpha = Math.max(alpha,value);
 			} else {
-
 				beta = Math.min(beta,value);
 			}
 		}
+
 		return value;
 	}
 
