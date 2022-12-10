@@ -7,7 +7,7 @@ public class AlphaBetaPruning {
     private static final int MAX_DEPTH = 6;
 
     public GameBoardState alphaBetaSearch(GameBoardState state, int depth, int alpha, int beta, boolean maximizingPlayer) {
-        if (depth == 0 || state.isTerminal()) {
+        if (depth == 0 || state.getChildStates().isEmpty() || state.getChildStates() == null ) {
             return state;
         }
 

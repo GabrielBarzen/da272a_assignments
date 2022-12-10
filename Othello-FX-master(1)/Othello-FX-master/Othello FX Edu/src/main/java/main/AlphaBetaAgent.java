@@ -45,6 +45,8 @@ public class AlphaBetaAgent extends Agent{
 	@Override
 	public AgentMove getMove(GameBoardState gameState) {
 
+
+
 		List<ObjectiveWrapper> allValidMoves = AgentController.getAvailableMoves(gameState, playerTurn);
 		List<MoveWrapper> moves = new ArrayList<>();
 		for (ObjectiveWrapper move : allValidMoves) {
@@ -54,23 +56,23 @@ public class AlphaBetaAgent extends Agent{
 
 		}
 
-		int depth = 5;
-		GameBoardState dt = GameTreeUtility.buildDecisionTree(gameState,depth,2500);
+		int depth = 6;
+		GameBoardState dt = GameTreeUtility.buildDecisionTree(gameState,depth,1000);
 		GameTreeUtility.printBoard(dt.getCells());
-		//int outAlfa = alfabetagrej(dt, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
-		//int outAlfa = abp(dt,depth,Integer.MIN_VALUE,Integer.MAX_VALUE,true);
-		AlphaBetaPruning solver = new AlphaBetaPruning();
 
+		AlphaBetaPruning moveFinder = new AlphaBetaPruning();
 
+		GameBoardState bestState = moveFinder.findBestMove(gameState);
 
-
-		System.out.println("----------");
-		//abp(gameState,depth,Integer.MIN_VALUE,Integer.MIN_VALUE,true);
-
-
-
-
-		return new MoveWrapper(solver.findBestMove(gameState).getLeadingMove());
+		/*
+		* IF alpha beta move can be determined, do move.
+		* Else get random move from state.
+		*/
+		if (bestState.getLeadingMove() != null) {
+			return new MoveWrapper(bestState.getLeadingMove());
+		} else {
+			return getExampleMove(gameState);
+		}
 	}
 
 
