@@ -6,6 +6,7 @@ import com.eudycontreras.othello.capsules.ObjectiveWrapper;
 import com.eudycontreras.othello.controllers.Agent;
 import com.eudycontreras.othello.controllers.AgentController;
 import com.eudycontreras.othello.enumerations.PlayerTurn;
+import com.eudycontreras.othello.models.GameBoard;
 import com.eudycontreras.othello.models.GameBoardState;
 import com.eudycontreras.othello.threading.ThreadManager;
 import com.eudycontreras.othello.threading.TimeSpan;
@@ -56,24 +57,20 @@ public class AlphaBetaAgent extends Agent{
 		int depth = 5;
 		GameBoardState dt = GameTreeUtility.buildDecisionTree(gameState,depth,2500);
 		GameTreeUtility.printBoard(dt.getCells());
-		int outAlfa = alfabetagrej(dt, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
+		//int outAlfa = alfabetagrej(dt, depth, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
 		//int outAlfa = abp(dt,depth,Integer.MIN_VALUE,Integer.MAX_VALUE,true);
-		MoveWrapper wrap = null;
-		for (GameBoardState childState : gameState.getChildStates()) {
-			System.out.println(childState.getBlackCount() + " == " + outAlfa);
-			if(childState.getBlackCount() == outAlfa) {
-				System.out.println("BF moves");
-				System.out.println(childState.getLeadingMove());
-				wrap = new MoveWrapper(childState.getLeadingMove());
-			}
-		}
+		AlphaBetaPruning solver = new AlphaBetaPruning();
+
+
+
+
 		System.out.println("----------");
 		//abp(gameState,depth,Integer.MIN_VALUE,Integer.MIN_VALUE,true);
 
 
 
 
-		return wrap;
+		return new MoveWrapper(solver.findBestMove(gameState).getLeadingMove());
 	}
 
 
