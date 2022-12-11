@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27e41be4-b75b-49db-96e6-fff4bf6cf08f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Othello FX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/L1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/board_texture_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/board_texture_2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/eudy_contreras.jpg" beforeDir="false" />
@@ -26,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/texture_8.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +52,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/gabri/Documents/GitHub/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "C:/Users/gabri/Documents/GitHub/da272a_assignments/L1",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -79,6 +82,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="L1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="L1" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Tester" />
@@ -96,6 +112,7 @@
       <workItem from="1670661123489" duration="632000" />
       <workItem from="1670768934993" duration="36000" />
       <workItem from="1670769475170" duration="18000" />
+      <workItem from="1670769542046" duration="86000" />
     </task>
     <servers />
   </component>
