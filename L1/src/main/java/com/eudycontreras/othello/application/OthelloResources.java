@@ -2,8 +2,6 @@ package com.eudycontreras.othello.application;
 
 import javafx.scene.image.Image;
 
-import java.util.Objects;
-
 /**
  * <H2>Created by</h2> Eudy Contreras
  * <h4> Mozilla Public License 2.0 </h4>
@@ -17,15 +15,15 @@ import java.util.Objects;
  */
 public class OthelloResources {
 
-
+	public static final String IMAGE_SOURCE_DIRECTORY = "";
 	
 	public static final Image LOGO = new Image(loadResource("logo.png"));
 	
 	public static final Image BOARD_TEXTURE_1 = new Image(loadResource("board_texture_1.jpg"));
 	
-	public static final Image BOARD_TEXTURE_2 = new Image(loadResource("board_texture_2.jpg"));
+	public static final Image BOARD_TEXTURE_2 = new Image(loadResource("board_texture_2.jpg"));	
 	
-	public static final Image CREATOR_PROFILE = new Image(loadResource("eudy_contreras.jpg"));
+	public static final Image CREATOR_PROFILE = new Image(loadResource("eudy_contreras.jpg"));	
 	
 	public static final Image TEXTURE[] = new Image[]{
 			new Image(loadResource("texture_16.jpg")),
@@ -46,7 +44,7 @@ public class OthelloResources {
 	
 
 	public static String loadResource(String image) {
-		String url = OthelloResources.class.getClassLoader().getResource(image).toString();
+		String url = IMAGE_SOURCE_DIRECTORY + image;
 		return url;
 	}
 }

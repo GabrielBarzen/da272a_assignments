@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27e41be4-b75b-49db-96e6-fff4bf6cf08f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/board_texture_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/board_texture_2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/eudy_contreras.jpg" beforeDir="false" />
@@ -46,18 +44,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabri/Documents/GitHub/da272a_assignments/L1&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/gabri/Documents/GitHub/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\Documents\GitHub\da272a_assignments\L1\src\main\resources" />
@@ -97,6 +95,7 @@
       <updated>1668595326662</updated>
       <workItem from="1670661123489" duration="632000" />
       <workItem from="1670768934993" duration="36000" />
+      <workItem from="1670769475170" duration="18000" />
     </task>
     <servers />
   </component>
