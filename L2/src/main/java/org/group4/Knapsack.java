@@ -48,9 +48,13 @@ public class Knapsack {
         }
         return knapsack;
     }
+    public double utility() {
+        return (getValue() / (getCapacity() - getWeight()))/getCapacity() ;
+    }
 
     @Override
     public String toString() {
-        return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, items=%s)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (items.stream().mapToDouble(Item::getWeight).sum()), items);
+        return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, value=%f)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (items.stream().mapToDouble(Item::getWeight).sum()),((items.stream().mapToDouble(Item::getValue).sum())));
+        //return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, items=%s)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (items.stream().mapToDouble(Item::getWeight).sum()), items);
     }
 }

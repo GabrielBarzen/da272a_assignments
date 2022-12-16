@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class KnapsackSolver {
-    public static Knapsack knapsackGreedy(List<Item> items, int capacity) {
+    public  Knapsack knapsackGreedy(List<Item> items, int capacity) {
         // Sort the items in decreasing order of their value-to-weight ratio
         items = items.stream()
                 .sorted((a, b) -> (int) ((b.getValue() / b.getWeight()) - (a.getValue() / a.getWeight())))
@@ -22,7 +22,11 @@ public class KnapsackSolver {
         return knapsack;
     }
 
-    public static void multipleKnapsackGreedy(List<Item> items, List<Knapsack> ksArr) {
+
+    List<Item> remainingItems = null;
+    List<Item> removedItems = null;
+
+    public  List<Knapsack> multipleKnapsackGreedy(List<Item> items, List<Knapsack> ksArr) {
         items = items.stream()
                 .sorted((a, b) -> Double.compare(b.getValue() / b.getWeight(), a.getValue() / a.getWeight()))
                 .collect(Collectors.toList());
@@ -32,7 +36,7 @@ public class KnapsackSolver {
                 .collect(Collectors.toList());
 
 
-        List<Item> removedItems = new ArrayList<>();
+        removedItems = new ArrayList<>();
         System.out.println("items: " + items);
 
         boolean filled = false;
@@ -40,13 +44,6 @@ public class KnapsackSolver {
         while (!filled) {
             boolean allFilled = true;
             for (Knapsack knapsack : ksArr) {
-          /*      if (!knapsack.isFeasible()) {
-                    Item item = knapsack.removeLast();
-                    removedItems.add(item);
-                    System.out.println("removed item over capacity " + item);
-                    continue;
-                }
-                allFilled = false;*/
                 if(!items.isEmpty()) {
                     for (int i = 0; i < items.size(); i++) {
                         if (knapsack.getWeight() + items.get(i).getWeight() < knapsack.getCapacity()) {
@@ -65,18 +62,7 @@ public class KnapsackSolver {
             if (allFilled) filled = true;
         }
 
-        /*boolean done = false;
-        do {
-            boolean allFesible = true;
-            for (Knapsack knapsack : ksArr) {
-                if (!knapsack.isFeasible()) {
-                    allFesible = false;
-                    removedItems.add(knapsack.removeLast());
-                }
-            }
-            if (allFesible) done = true;
 
-        } while (!done);*/
 
         System.out.println("-------------");
         System.out.println(">>Knapsacks<<");
@@ -89,5 +75,32 @@ public class KnapsackSolver {
         System.out.println("Sorted Remaining items on weight: " + items.stream().sorted((a, b) -> (int) (a.getWeight() - b.getWeight()))
                 .toList());
 
+        remainingItems = items;
+
+        return ksArr;
     }
+
+    public  void multipleKnapsackNeighbour(List<Knapsack> ksArr) {
+        for (Knapsack knapsack : ksArr) {
+            System.out.println("utility : " + knapsack.utility());
+        }
+
+    }
+
+    public List<Item> getRemainingItems() {
+        return remainingItems;
+    }
+
+    public void setRemainingItems(List<Item> remainingItems) {
+        this.remainingItems = remainingItems;
+    }
+
+    public List<Item> getRemovedItems() {
+        return removedItems;
+    }
+
+    public void setRemovedItems(List<Item> removedItems) {
+        this.removedItems = removedItems;
+    }
+
 }
