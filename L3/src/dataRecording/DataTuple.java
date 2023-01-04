@@ -141,6 +141,32 @@ public class DataTuple {
 	public String getSaveString() {
 		StringBuilder stringbuilder = new StringBuilder();
 
+/*		//stringbuilder.append(this.DirectionChosen + ";");
+		//stringbuilder.append(this.mazeIndex + ";");
+		///stringbuilder.append(this.currentLevel + ";");
+		stringbuilder.append(this.pacmanPosition + ";");
+		stringbuilder.append(this.pacmanLivesLeft + ";");
+		stringbuilder.append(this.currentScore + ";");
+		//stringbuilder.append(this.totalGameTime + ";");
+		stringbuilder.append(this.currentLevelTime + ";");
+		stringbuilder.append(this.numOfPillsLeft + ";");
+		stringbuilder.append(this.numOfPowerPillsLeft + ";");
+		stringbuilder.append(this.isBlinkyEdible + ";");
+		stringbuilder.append(this.isInkyEdible + ";");
+		stringbuilder.append(this.isPinkyEdible + ";");
+		stringbuilder.append(this.isSueEdible + ";");
+		stringbuilder.append(this.blinkyDist + ";");
+		stringbuilder.append(this.inkyDist + ";");
+		stringbuilder.append(this.pinkyDist + ";");
+		stringbuilder.append(this.sueDist + ";");
+		//stringbuilder.append(this.blinkyDir + ";");
+		//stringbuilder.append(this.inkyDir + ";");
+		//stringbuilder.append(this.pinkyDir + ";");
+		//stringbuilder.append(this.sueDir + ";");
+		//stringbuilder.append(this.numberOfNodesInLevel + ";");
+		//stringbuilder.append(this.numberOfTotalPillsInLevel + ";");
+		//stringbuilder.append(this.numberOfTotalPowerPillsInLevel + ";");*/
+
 		stringbuilder.append(this.DirectionChosen + ";");
 		stringbuilder.append(this.mazeIndex + ";");
 		stringbuilder.append(this.currentLevel + ";");
