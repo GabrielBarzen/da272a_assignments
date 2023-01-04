@@ -82,8 +82,8 @@ public final class Constants
 	public static final int IO_LIMIT=10;					//limit in MB on the files written by controllers
 	
 	//for Maze
-	public static final String pathMazes="data/mazes";
-	public static final String pathDistances="data/distances";
+	public static final String pathMazes="L3/resources/data/mazes";
+	public static final String pathDistances="L3/resources/data/distances";
 	public static final String[] nodeNames={"a","b","c","d"};
 	public static final String[] distNames={"da","db","dc","dd"};
 	
@@ -92,7 +92,7 @@ public final class Constants
 	public static final int GV_WIDTH=114;
 	public static final int GV_HEIGHT=130;
 
-	public static String pathImages="data/images";
+	public static String pathImages="L3/resources/data/images";
 	public static String[] mazeNames={"maze-a.png","maze-b.png","maze-c.png","maze-d.png"};
 	
 	private Constants(){}
