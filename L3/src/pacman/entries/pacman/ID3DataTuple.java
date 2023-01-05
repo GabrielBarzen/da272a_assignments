@@ -13,6 +13,8 @@ import java.util.List;
 public class ID3DataTuple extends DataTuple {
 
 
+
+
 	public void discretizeAll() {
 		ID3currentScore =  discretizeCurrentScore(currentScore);
 		ID3currentLevelTime = discretizeCurrentLevelTime(currentLevelTime);
@@ -23,14 +25,15 @@ public class ID3DataTuple extends DataTuple {
 		ID3pinkyDist = discretizeDistance(pinkyDist);
 		ID3sueDist = discretizeDistance(sueDist);
 
-		attributes.add(ID3currentScore);
-		attributes.add(ID3currentLevelTime);
-		attributes.add(ID3numOfPillsLeft);
-		attributes.add(ID3numOfPowerPillsLeft);
-		attributes.add(ID3blinkyDist);
-		attributes.add(ID3inkyDist);
-		attributes.add(ID3pinkyDist);
-		attributes.add(ID3sueDist);
+		attributes.add(ID3currentScore.toString());
+		attributes.add(ID3currentLevelTime.toString());
+		attributes.add(ID3numOfPillsLeft.toString());
+		attributes.add(ID3numOfPowerPillsLeft.toString());
+		attributes.add(ID3blinkyDist.toString());
+		attributes.add(ID3inkyDist.toString());
+		attributes.add(ID3pinkyDist.toString());
+		attributes.add(ID3sueDist.toString());
+		attributes.add(DirectionChosen.toString());
 
 		labels.add(ID3currentScore.name());
 		labels.add(ID3currentLevelTime.name());
@@ -40,19 +43,20 @@ public class ID3DataTuple extends DataTuple {
 		labels.add(ID3inkyDist.name());
 		labels.add(ID3pinkyDist.name());
 		labels.add(ID3sueDist.name());
+		labels.add(DirectionChosen.name());
 	}
 
 
 
 	List<String> labels = new ArrayList<>();
-	List<DiscreteTag> attributes = new ArrayList<>();
+	List<String> attributes = new ArrayList<>();
 
 	public List<String> getLabels() {
 		return labels;
 	}
 
 	public List<String> getAttributes() {
-		return labels;
+		return attributes;
 	}
 
 
