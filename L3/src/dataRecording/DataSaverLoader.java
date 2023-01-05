@@ -1,5 +1,6 @@
 package dataRecording;
 
+import pacman.entries.pacman.ID3DataTuple;
 import pacman.game.util.*;
 
 /**
@@ -28,6 +29,20 @@ public class DataSaverLoader {
 			dataTuples[i] = new DataTuple(dataLine[i]);
 		}
 		
+		return dataTuples;
+	}
+
+	public static ID3DataTuple[] ID3LoadPacManData()
+	{
+		String data = IO.loadFile(FileName);
+		String[] dataLine = data.split("\n");
+		ID3DataTuple[] dataTuples = new ID3DataTuple[dataLine.length];
+
+		for(int i = 0; i < dataLine.length; i++)
+		{
+			dataTuples[i] = new ID3DataTuple(dataLine[i]);
+		}
+
 		return dataTuples;
 	}
 }
