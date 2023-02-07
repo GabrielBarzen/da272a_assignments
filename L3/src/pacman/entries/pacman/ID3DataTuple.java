@@ -12,9 +12,6 @@ import java.util.List;
 
 public class ID3DataTuple extends DataTuple {
 
-
-
-
 	public void discretizeAll() {
 		ID3currentScore =  discretizeCurrentScore(currentScore);
 		ID3currentLevelTime = discretizeCurrentLevelTime(currentLevelTime);

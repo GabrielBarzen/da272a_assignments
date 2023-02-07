@@ -26,25 +26,19 @@ public class ID3Man extends Controller<MOVE> {
             examples.add(id3gameDatum.getAttributes());
         }
 
-        tree = id3(examples,ID3gameData[0].getLabels(), "DirectionChosen");
+        tree = id3(examples, ID3gameData[0].getLabels(), "DirectionChosen");
 
         for (Node value : tree.children.values()) {
             System.out.println("label" + value.label + ", attribute : " + value.attribute);
         }
     }
+
     Node tree;
 
 
-    public static void main(String[] args) {
-        ID3Man id3Man = new ID3Man();
-    }
-
     public MOVE getMove(Game game, long timeDue) {
 
-
         //Place your game logic here to play the game as Ms Pac-Man
-
-
 
         return null;
     }
@@ -77,23 +71,26 @@ public class ID3Man extends Controller<MOVE> {
                 break;
             }
         }
+        //Returns DirectionChosen if all DirectionChosen are the same, hence pure class
         if (sameLabel) {
             return new Node(label, null);
         }
 
+        System.out.println(attributes.toString());
+
+
         // If there are no attributes left, return a leaf node with the majority label
-        if (attributes.isEmpty()) {
+        if (attributes.size() == 1) {
+            System.out.println("kommer du in hit bror?");
+            /*
             int count = 0;
             for (List<String> example : examples) {
                 if (example.get(example.size() - 1).equals(label)) {
                     count++;
                 }
             }
-            if ((count > examples.size() / 2)) {
-                return new Node(label, "DirectionChosen");
-            } else {
-                return new Node(label, "DirectionChosen");
-            }
+            */
+            return new Node(label, "DirectionChosen");
         }
 
         // Find the attribute with the highest information gain
