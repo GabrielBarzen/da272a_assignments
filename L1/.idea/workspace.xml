@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27e41be4-b75b-49db-96e6-fff4bf6cf08f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Othello FX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/L1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/board_texture_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/board_texture_2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/eudy_contreras.jpg" beforeDir="false" />
@@ -28,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/classes/texture_8.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/da272a_assignments/Othello-FX-master(1)/Othello-FX-master/Othello FX Edu/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1670661123489" duration="632000" />
       <workItem from="1670768934993" duration="36000" />
       <workItem from="1670769475170" duration="18000" />
-      <workItem from="1670769542046" duration="86000" />
+      <workItem from="1670769542046" duration="143000" />
     </task>
     <servers />
   </component>
