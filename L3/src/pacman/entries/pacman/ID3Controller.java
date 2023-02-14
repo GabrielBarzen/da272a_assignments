@@ -17,6 +17,7 @@ public class ID3Controller extends Controller<Constants.MOVE> {
             children = new HashMap<>();
         }
         public Node(String outcome) {
+            children = new HashMap<>();
             this.outcome = outcome;
         }
 
@@ -40,9 +41,9 @@ public class ID3Controller extends Controller<Constants.MOVE> {
     }
 
 
-    public static void main(String[] args) {
-        new ID3Controller();
-    }
+//    public static void main(String[] args) {
+//        new ID3Controller();
+//    }
 
     public ID3Controller(){
         ID3DataTuple[] ID3gameData = DataSaverLoader.ID3LoadPacManData();
@@ -50,6 +51,7 @@ public class ID3Controller extends Controller<Constants.MOVE> {
 
         List<List<String>> examplesList = new ArrayList<>(ID3gameData[0].getAttributes().size());
         List<String> labels = ID3gameData[0].getLabels();
+        System.out.println("Number of shits to read " + ID3gameData.length);
 
 
         for (int i = 0; i < ID3gameData[0].getAttributes().size(); i++) {
@@ -61,8 +63,8 @@ public class ID3Controller extends Controller<Constants.MOVE> {
             }
         }
 
-        System.out.println(labels);
-        System.out.println(examplesList);
+        //System.out.println(labels);
+        //System.out.println(examplesList);
 
         Node root = id3(examplesList, labels, new Node());
         System.out.println("=====================");
@@ -82,33 +84,42 @@ public class ID3Controller extends Controller<Constants.MOVE> {
         id3dt.discretizeAll();
         List<String> attributes = id3dt.getAttributes();
         List<String> labels = id3dt.getLabels();
-        System.out.println(labels);
-        System.out.println(attributes);
+        //System.out.println(labels);
+        //System.out.println(attributes);
         Node node = tree;
 
         while (move == null) {
+
 
             //checka vilken label noden har
             //checka vilket värde vår tupel har
             //hämta child ur hashmap
             //kolla ifall child har move
             //sätt node till child
-            if(node.outcome != null) {
+
+            if (node.children.keySet().isEmpty()){
                 move = Constants.MOVE.valueOf(node.outcome);
             } else {
                 for (int i = 0; i < labels.size(); i++) {
-                    if (!(node.label == null)) {
-                        if (labels.get(i).equals(node.label)) {
-                            if (node.children.get(attributes.get(i)) != null) {
-                                node = node.children.get(attributes.get(i));
-                            } else break;
+                    if (labels.get(i).equals(node.label)) {
+
+                        if (node.children.get(attributes.get(i)) == null) {
+                            System.out.println("Selected label " + labels.get(i));
+                            System.out.println("Selected Attribute " + attributes.get(i));
+                            System.out.println("Node label " + node.label);
+                            System.out.println("Node outcome " + node.outcome);
+                            System.out.println("Node children " + node.children);
+
                         }
-                    } else {
+                        node = node.children.get(attributes.get(i));
                         break;
                     }
                 }
             }
+
         }
+
+
         return move;
     }
 

@@ -349,7 +349,8 @@ public final class Game
 	 * @param ghostMoves The moves supplied by the ghosts controller
 	 */	
 	public void advanceGame(MOVE pacManMove,EnumMap<GHOST,MOVE> ghostMoves)
-	{		
+	{
+		System.out.println("moving " + pacManMove);
 		updatePacMan(pacManMove);
 		updateGhosts(ghostMoves);	
 		updateGame();
