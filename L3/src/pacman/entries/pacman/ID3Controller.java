@@ -1,13 +1,12 @@
 package pacman.entries.pacman;
 import dataRecording.DataSaverLoader;
-import dataRecording.DataTuple;
 import pacman.controllers.Controller;
 import pacman.game.Constants;
 import pacman.game.Game;
 
 import java.util.*;
 
-public class Mahesh extends Controller<Constants.MOVE> {
+public class ID3Controller extends Controller<Constants.MOVE> {
     public static class Node {
         //String attribute;
         Map<String, Node> children;
@@ -42,10 +41,10 @@ public class Mahesh extends Controller<Constants.MOVE> {
 
 
     public static void main(String[] args) {
-        new Mahesh();
+        new ID3Controller();
     }
 
-    public Mahesh(){
+    public ID3Controller(){
         ID3DataTuple[] ID3gameData = DataSaverLoader.ID3LoadPacManData();
         Arrays.stream(ID3gameData).forEach(ID3DataTuple::discretizeAll);
 
@@ -78,12 +77,13 @@ public class Mahesh extends Controller<Constants.MOVE> {
         Constants.MOVE move = null;
         if (tree == null) System.exit(5);
 
-        DataTuple dt = new DataTuple(game, Constants.MOVE.NEUTRAL );
-        ID3DataTuple id3dt = new ID3DataTuple(dt.getSaveString());
+        ID3DataTuple id3dt = new ID3DataTuple(game, Constants.MOVE.NEUTRAL);
 
         id3dt.discretizeAll();
         List<String> attributes = id3dt.getAttributes();
         List<String> labels = id3dt.getLabels();
+        System.out.println(labels);
+        System.out.println(attributes);
         Node node = tree;
 
         while (move == null) {

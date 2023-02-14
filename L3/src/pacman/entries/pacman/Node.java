@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Node {
     String attribute;
-    Map<String, ID3Man.Node> children;
+    Map<String, Node> children;
     String label;
 
     public Node(String attribute) {
