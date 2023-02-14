@@ -22,43 +22,103 @@ public class ID3Man2ElectricBoogaloo extends Controller<MOVE> {
         ID3DataTuple[] ID3gameData = DataSaverLoader.ID3LoadPacManData();
         Arrays.stream(ID3gameData).forEach(ID3DataTuple::discretizeAll);
 
-        List<List<String>> examples = new ArrayList<>();
+        List<List<String>> examplesList = new ArrayList<>();
+        HashMap<String, List<String>> examples = new HashMap<>();
+        List<String> attributes = ID3gameData[0].getLabels();
+        List<String> labels = new ArrayList<>();
+        labels.add("VERY_LOW");
+        labels.add("LOW");
+        labels.add("MEDIUM");
+        labels.add("HIGH");
+        labels.add("VERY_HIGH");
+
+
 
         for (ID3DataTuple id3gameDatum : ID3gameData) {
-            examples.add(id3gameDatum.getAttributes());
+            examplesList.add(id3gameDatum.getAttributes());
         }
 
-        List<String> target = new ArrayList<>();
-        for (List<String> example : examples) {
-            target.add(example.get(example.size()-1));
+        for (int i = 0; i < attributes.size(); i++) {
+            List<String> tempList = new ArrayList<>();
+            for (int j = 0; j < examplesList.size(); j++) {
+                tempList.add(examplesList.get(j).get(i));
+            }
+            System.out.println(attributes.get(i));
+            examples.put(attributes.get(i), tempList);
         }
-        System.out.println("Entropy : " + calculateEntropy(target));
 
-
-        //tree = id3(examples, ID3gameData[0].getLabels(), "DirectionChosen");
+        tree = id3(examples, "DirectionChosen");
 
     }
 
-    private Node id3(List<List<String>> examples, List<String> labels, String targetAttribute) {
+    private Node id3(HashMap<String, List<String>> examples, String targetAttribute) {
         return null;
     }
 
-    public static double calculateEntropy(List<String> strings, List<String> classLabels) {
+    public static double informationGain(HashMap<String, List<String>> examples, String attribute, String targetAttribute) {
         // Create a HashMap to store the frequency of each string
-        HashMap<String, Integer> frequencyMap = new HashMap<>();
-        int total = 0;
+        HashMap<String, Integer> attributeFrequencyMap = new HashMap<>();
+        HashMap<String, Integer> classAttributeFrequencyMap = new HashMap<>();
+        List<String> attributeList = examples.get(attribute);
+        List<String> outcomeList = examples.get(targetAttribute);
 
-        // Calculate the frequency of each string
-        for (String str : strings) {
-            if (frequencyMap.containsKey(str)) {
-                frequencyMap.put(str, frequencyMap.get(str) + 1);
+        double total = 0.0;
+
+        //Calculate total frequency of class attribute labels
+        for (String str : outcomeList) {
+            if (classAttributeFrequencyMap.containsKey(str)) {
+                classAttributeFrequencyMap.put(str, classAttributeFrequencyMap.get(str) + 1);
             } else {
-                frequencyMap.put(str, 1);
+                classAttributeFrequencyMap.put(str, 1);
+            }
+        }
+
+        // Calculate the frequency of each label
+        for (String str : attributeList) {
+            if (attributeFrequencyMap.containsKey(str)) {
+                attributeFrequencyMap.put(str, attributeFrequencyMap.get(str) + 1);
+            } else {
+                attributeFrequencyMap.put(str, 1);
             }
             total++;
         }
-        
-        // Calculate the entropy based on the frequency of each string
+
+        //Calculates complete set entropy
+        double setEntropy = actuallyEntropy(classAttributeFrequencyMap, total);
+
+
+        //Calculates individual entropy for each value (e.g. VERY_LOW,LOW) and saves in Hattribute
+        HashMap<String, Double> Hattribute = new HashMap<>();
+        for (String s : attributeFrequencyMap.keySet()) {
+            HashMap<String, Integer> outcomeToAttributeFreq = new HashMap<>();
+            for (int i = 0; i < attributeList.size(); i++) {
+                if(s.equals(attributeList.get(i))) {
+                    if (outcomeToAttributeFreq.containsKey(outcomeList.get(i))) {
+                        outcomeToAttributeFreq.put(outcomeList.get(i), outcomeToAttributeFreq.get(outcomeList.get(i)) + 1);
+                    } else {
+                        outcomeToAttributeFreq.put(outcomeList.get(i), 1);
+                    }
+                }
+            }
+            int tempTot = 0;
+            for (Integer value : outcomeToAttributeFreq.values()) {
+                tempTot += value;
+            }
+            Hattribute.put(s, actuallyEntropy(outcomeToAttributeFreq, tempTot));
+
+        }
+
+        //Averages attribute entropy
+        double averageEntropyAttribute = 0;
+        for (String s : attributeFrequencyMap.keySet()) {
+            averageEntropyAttribute += (attributeFrequencyMap.get(s) / total) * Hattribute.get(s);
+        }
+
+        //Returns Complete set entropy - average entropy for the attribute, aka information gain
+        return setEntropy - averageEntropyAttribute;
+    }
+
+    public static double actuallyEntropy(HashMap<String, Integer> frequencyMap, double total) {
         double entropy = 0e-11;
         for (String outcome : frequencyMap.keySet()) {
             double proportion = (double) frequencyMap.get(outcome) / total;
@@ -67,49 +127,71 @@ public class ID3Man2ElectricBoogaloo extends Controller<MOVE> {
             }
         }
         return -(entropy);
-
     }
 
-    public static double calculateEntropy2(List<List<String>> strings, List<String> classLabels) {
-        // Create a HashMap to store the frequency of each string
-        HashMap<String, Integer> frequencyMap = new HashMap<>();
-        int total = 0;
 
-        // Calculate the frequency of each string
-        for (String str : strings) {
+    public double e(List<String> attributes) {
+        double entropy = 0.0;
+        int totalElements = 0;
+
+        HashMap<String,Integer> frequencyMap = new HashMap<>();
+        for (String str : attributes) {
             if (frequencyMap.containsKey(str)) {
                 frequencyMap.put(str, frequencyMap.get(str) + 1);
             } else {
                 frequencyMap.put(str, 1);
             }
-            total++;
+            totalElements++;
         }
 
-        // Calculate the entropy based on the frequency of each string
-        double entropy = 0e-11;
-        for (String outcome : frequencyMap.keySet()) {
-            double proportion = (double) frequencyMap.get(outcome) / total;
+        for (String attribute : attributes) {
+            double proportion = (double) frequencyMap.get(attribute) / totalElements;
             if (proportion > 0) {
                 entropy += proportion * (Math.log(proportion) / Math.log(2));
             }
         }
-        return -(entropy);
-
+        return entropy;
     }
 
-
-
-    //public double entropy(int total, int[] outcomes) {
-    //    System.out.println("outcomes        : " + Arrays.toString(outcomes));
-    //    System.out.println("total           : " + total);
-    //    System.out.println("outcomes length : " + outcomes.length);
-//
-//
-    //}
+    public double ig() {
+        return -1;
+    }
 
     public double informationGain() {
         return -1;
     }
+
+    //# x is examples in training set
+    //# y is set of attributes
+    //# labels is labeled data
+    //# Node is a class which has properties values, childs, and next
+    //# root is top node in the decision tree# Declare:
+    //x = # Multi dimensional arrays
+    //y = # Column names of x
+    //labels = # Classification values, for example {0, 1, 0, 1}
+    //         # correspond that row 1 is false, row 2 is true, and so on
+    //root = ID3(x, y, label, root)# Define:
+    //ID3(x, y, label, node)
+    //  initialize node as a new node instance
+    //  if all rows in x only have single classification c, then:
+    //    insert label c into node
+    //    return node
+    //  if x is empty, then:
+    //    insert dominant label in x into node
+    //    return node
+    //  bestAttr is an attribute with maximum information gain in x
+    //  insert attribute bestAttr into node
+    //  for vi in values of bestAttr:
+    //    // For example, Outlook has three values: Sunny, Overcast, and Rain
+    //    insert value vi as branch of node
+    //    create viRows with rows that only contains value vi
+    //    if viRows is empty, then:
+    //      this node branch ended by a leaf with value is dominant label in x
+    //    else:
+    //      newY = list of attributes y with bestAttr removed
+    //      nextNode = next node connected by this branch
+    //      nextNode = ID3(viRows, newY, label, nextNode)
+    //  return node
 
 
     //Sure! Here's a step-by-step guide on how the ID3 algorithm works:

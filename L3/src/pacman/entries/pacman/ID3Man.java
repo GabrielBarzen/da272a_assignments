@@ -150,8 +150,7 @@ public class ID3Man extends Controller<MOVE> {
     public static double entropy(List<List<String>> examples, String targetAttribute) {
         Map<String, Integer> labelCounts = new HashMap<>();
         for (List<String> example : examples) {
-            //String label = example.get(example.indexOf(targetAttribute));
-            String label = example.get(example.size()-1);
+            String label = example.get(example.indexOf(targetAttribute));
             if (!labelCounts.containsKey(label)) {
                 labelCounts.put(label, 0);
             }

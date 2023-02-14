@@ -32,15 +32,15 @@ public class ID3DataTuple extends DataTuple {
 		attributes.add(ID3sueDist.toString());
 		attributes.add(DirectionChosen.toString());
 
-		labels.add(ID3currentScore.name());
-		labels.add(ID3currentLevelTime.name());
-		labels.add(ID3numOfPillsLeft.name());
-		labels.add(ID3numOfPowerPillsLeft.name());
-		labels.add(ID3blinkyDist.name());
-		labels.add(ID3inkyDist.name());
-		labels.add(ID3pinkyDist.name());
-		labels.add(ID3sueDist.name());
-		labels.add(DirectionChosen.name());
+		labels.add("currentScore");
+		labels.add("currentLevelTime");
+		labels.add("numOfPillsLeft");
+		labels.add("numOfPowerPillsLeft");
+		labels.add("blinkyDist");
+		labels.add("inkyDist");
+		labels.add("pinkyDist");
+		labels.add("sueDist");
+		labels.add("directionChosen");
 	}
 
 
@@ -160,7 +160,6 @@ public class ID3DataTuple extends DataTuple {
 		String[] dataSplit = data.split(";");
 
 		this.DirectionChosen = MOVE.valueOf(dataSplit[0]);
-
 		this.mazeIndex = Integer.parseInt(dataSplit[1]);
 		this.currentLevel = Integer.parseInt(dataSplit[2]);
 		this.pacmanPosition = Integer.parseInt(dataSplit[3]);
