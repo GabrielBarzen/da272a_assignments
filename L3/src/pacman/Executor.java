@@ -87,8 +87,8 @@ public class Executor
 		
 		//run game for data collection
 
-		//exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
-		exec.runGameTimed(new Mahesh(),new StarterGhosts(),visual);
+		exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
+		//exec.runGameTimed(new Mahesh(),new StarterGhosts(),visual);
 
 	}
 	
