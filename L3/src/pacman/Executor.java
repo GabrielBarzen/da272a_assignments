@@ -16,6 +16,7 @@ import pacman.controllers.HumanController;
 import pacman.controllers.KeyBoardInput;
 import pacman.controllers.examples.StarterGhosts;
 import pacman.entries.pacman.ID3Controller;
+import pacman.entries.pacman.ID3Controller2;
 import pacman.game.Game;
 import pacman.game.GameView;
 
@@ -79,7 +80,7 @@ public class Executor
 		//run game for data collection
 
 		//exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
-		exec.runGame(new ID3Controller(),new StarterGhosts(),visual,32);
+		exec.runGame(new ID3Controller2(),new StarterGhosts(),visual,32);
 
 	}
 	
@@ -141,8 +142,7 @@ public class Executor
 			System.out.println("{");
 			MOVE pacmove = pacManController.getMove(game.copy(),-1);
 			EnumMap<GHOST, MOVE> ghostmove = ghostController.getMove(game.copy(),-1);
-			System.out.println("pacmove 	:" + pacmove);
-			System.out.println("ghostmove	:" + ghostmove);
+
 	        game.advanceGame(pacmove,ghostmove);
 
 	        try{Thread.sleep(delay);}catch(Exception e){
