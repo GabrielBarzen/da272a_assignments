@@ -5,10 +5,11 @@ import pacman.game.Constants;
 import pacman.game.Game;
 
 import java.awt.*;
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.List;
 
-public class ID3Controller extends Controller<Constants.MOVE> {
+public class ID3Controller2 extends Controller<Constants.MOVE> {
     public static class Node {
         //String attribute;
         Map<String, Node> children;
@@ -70,10 +71,10 @@ public class ID3Controller extends Controller<Constants.MOVE> {
 
 
     public static void main(String[] args) {
-        new ID3Controller();
+        new ID3Controller2();
     }
 
-    public ID3Controller(){
+    public ID3Controller2(){
         ID3DataTuple[] ID3gameData = DataSaverLoader.ID3LoadPacManData();
         Arrays.stream(ID3gameData).forEach(ID3DataTuple::discretizeAll);
 
@@ -130,17 +131,22 @@ public class ID3Controller extends Controller<Constants.MOVE> {
             } else {
                 for (int i = 0; i < labels.size(); i++) {
                     if (labels.get(i).equals(node.label)) {
+                        System.out.println("{");
+                        System.out.println("    Selected label " + labels.get(i));
+                        System.out.println("    Selected Attribute " + attributes.get(i));
+                        System.out.println("    Node label " + node.label);
+                        System.out.println("    Node outcome " + node.outcome);
+                        System.out.println("    Node children " + node.children);
 
-                        System.out.println("Selected label " + labels.get(i));
-                        System.out.println("Selected Attribute " + attributes.get(i));
-                        System.out.println("Node label " + node.label);
-                        System.out.println("Node outcome " + node.outcome);
-                        System.out.println("Node children " + node.children);
+
+
                         if (node.children.get(attributes.get(i)) == null) {
                             return Constants.MOVE.values()[new Random().nextInt(Constants.MOVE.values().length)];
-
                         }
+
                         node = node.children.get(attributes.get(i));
+
+                        System.out.println("}");
                         break;
                     }
                 }
@@ -153,16 +159,39 @@ public class ID3Controller extends Controller<Constants.MOVE> {
     }
 
     public Node id3(List<List<String>> examples, List<String> labels, Node root) {
+        return id3(examples,labels,root,null,null);
+    }
+
+    public String majorityLabel(List<List<String>> examples){
+        HashMap<String,Integer> frequency = new HashMap<>();
+        for (String s : examples.get(examples.size()-1)) {
+            if (frequency.containsKey(s)) {
+                frequency.put(s,frequency.get(s)+1);
+            } else {
+                frequency.put(s,1);
+            }
+        }
+        String biggestOutcome = "";
+        int biggestFrequency = 0;
+        for (String s : frequency.keySet()) {
+            if (frequency.get(s) > biggestFrequency) {
+                biggestFrequency = frequency.get(s);
+                biggestOutcome = s;
+            }
+        }
+        System.out.println("BIGGEST OUTCOME : " + biggestOutcome);
+        return biggestOutcome;
+    }
+
+    public Node id3(List<List<String>> examples, List<String> labels, Node root, Node parent, List<List<String>> parentExamples) {
+        if(isPureClass(examples)) return new Node(examples.get(examples.size()-1).get(0));
 
         if (labels.size() == 2) {
-            root.label = labels.get(0);
-            root.outcome = examples.get(examples.size()-1).get(0);
-            return root;
+            return new Node(majorityLabel(examples));
         }
-        if (examples.size() == 0 ) {
-            root.label = labels.get(0);
-            root.outcome = "UP";
-            return root;
+
+        if (examples.size() == 0) {
+            return new Node(majorityLabel(parentExamples));
         }
 
         double setEntropy = entropy(examples.get(examples.size()-1));
@@ -175,6 +204,7 @@ public class ID3Controller extends Controller<Constants.MOVE> {
 
             }
         }
+
         if (informationGainList.size() == 0) return root;
         root.label = labels.get(biggest);
 
@@ -183,30 +213,19 @@ public class ID3Controller extends Controller<Constants.MOVE> {
         for (String s : exampleList.keySet()) {
             List<List<String>> newExample = exampleList.get(s);
 
-            boolean pure = isPureClass(newExample);
-
             HashMap<String,Node> children = (HashMap<String, Node>) root.children;
 
-            System.out.println("Label : " + labels.get(biggest) + ", Pure check " + newExample.get(biggest).get(0) + ", is : " + pure);
-            if (pure) {
-                String branch = (newExample.get(biggest).get(0));
+            System.out.println("Label : " + labels.get(biggest) + ", Pure check " + newExample.get(biggest).get(0) + ", is : " + isPureClass(newExample));
+            String branch = (newExample.get(biggest).get(0));
+            List<List<String>> branchExamples = newExample;
 
+            branchExamples.remove(biggest);
+            ArrayList<String> newLabels = new ArrayList<>(labels);
 
-                children.put(branch, new Node(newExample.get(newExample.size()-1).get(0)));
-                root.children = children;
-            } else {
+            newLabels.remove(biggest);
 
-                String branch = (newExample.get(biggest).get(0));
-                List<List<String>> branchExamples = newExample;
-
-                branchExamples.remove(biggest);
-                ArrayList<String> newLabels = new ArrayList<>(labels);
-
-                newLabels.remove(biggest);
-
-                children.put(branch, id3(branchExamples,newLabels,new Node()));
-                root.children = children;
-            }
+            children.put(branch, id3(branchExamples,newLabels,new Node(),root, examples));
+            root.children = children;
         }
         return root;
     }

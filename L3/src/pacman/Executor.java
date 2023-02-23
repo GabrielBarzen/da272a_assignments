@@ -10,10 +10,13 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Random;
 
+import dataRecording.DataCollectorController;
 import pacman.controllers.Controller;
 import pacman.controllers.HumanController;
+import pacman.controllers.KeyBoardInput;
 import pacman.controllers.examples.StarterGhosts;
 import pacman.entries.pacman.ID3Controller;
+import pacman.entries.pacman.ID3Controller2;
 import pacman.game.Game;
 import pacman.game.GameView;
 
@@ -77,7 +80,7 @@ public class Executor
 		//run game for data collection
 
 		//exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
-		exec.runGameTimed(new ID3Controller(),new StarterGhosts(),visual);
+		exec.runGame(new ID3Controller2(),new StarterGhosts(),visual,32);
 
 	}
 	
@@ -136,12 +139,19 @@ public class Executor
 		
 		while(!game.gameOver())
 		{
-	        game.advanceGame(pacManController.getMove(game.copy(),-1),ghostController.getMove(game.copy(),-1));
-	        
-	        try{Thread.sleep(delay);}catch(Exception e){}
+			System.out.println("{");
+			MOVE pacmove = pacManController.getMove(game.copy(),-1);
+			EnumMap<GHOST, MOVE> ghostmove = ghostController.getMove(game.copy(),-1);
+
+	        game.advanceGame(pacmove,ghostmove);
+
+	        try{Thread.sleep(delay);}catch(Exception e){
+
+			}
 	        
 	        if(visual)
 	        	gv.repaint();
+			System.out.println("}");
 		}
 	}
 	

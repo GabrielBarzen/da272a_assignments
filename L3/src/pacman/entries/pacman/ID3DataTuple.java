@@ -8,39 +8,89 @@ import pacman.game.Constants.MOVE;
 import pacman.game.Game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ID3DataTuple extends DataTuple {
 
 	public void discretizeAll() {
-		//ID3currentScore =  discretizeCurrentScore(currentScore);
+
+
+
+
+
+		ID3currentScore =  discretizeCurrentScore(currentScore);
 		//ID3currentLevelTime = discretizeCurrentLevelTime(currentLevelTime);
 		ID3numOfPillsLeft = discretizeNumberOfPills(numOfPillsLeft);
-		//ID3numOfPowerPillsLeft = discretizeNumberOfPowerPills(numOfPowerPillsLeft);
+		ID3numOfPowerPillsLeft = discretizeNumberOfPowerPills(numOfPowerPillsLeft);
 		ID3blinkyDist = discretizeDistance(blinkyDist);
 		ID3inkyDist = discretizeDistance(inkyDist);
 		ID3pinkyDist = discretizeDistance(pinkyDist);
 		ID3sueDist = discretizeDistance(sueDist);
 
-		//attributes.add(ID3currentScore.toString());
+
+		attributes.add(ID3currentScore.toString());
 		//attributes.add(ID3currentLevelTime.toString());
 		attributes.add(ID3numOfPillsLeft.toString());
-		//attributes.add(ID3numOfPowerPillsLeft.toString());
+		attributes.add(ID3numOfPowerPillsLeft.toString());
+
+
+		//attributes.add(String.valueOf(this.isBlinkyEdible));
+		//attributes.add(String.valueOf(this.isInkyEdible));
+		//attributes.add(String.valueOf(this.isPinkyEdible));
+		//attributes.add(String.valueOf(this.isSueEdible));
+
+		attributes.add(vulnerableTag(isBlinkyEdible,ID3blinkyDist));
+		attributes.add(vulnerableTag(isInkyEdible,ID3inkyDist));
+		attributes.add(vulnerableTag(isPinkyEdible,ID3pinkyDist));
+		attributes.add(vulnerableTag(isSueEdible,ID3sueDist));
+
+
+
+
 		attributes.add(ID3blinkyDist.toString());
 		attributes.add(ID3inkyDist.toString());
 		attributes.add(ID3pinkyDist.toString());
 		attributes.add(ID3sueDist.toString());
 		attributes.add(DirectionChosen.toString());
 
-		//labels.add("currentScore");
+		labels.add("currentScore");
 		//labels.add("currentLevelTime");
 		labels.add("numOfPillsLeft");
-		//labels.add("numOfPowerPillsLeft");
+		labels.add("numOfPowerPillsLeft");
+
+		//labels.add("isBlinkyEdible");
+		//labels.add("isInkyEdible");
+		//labels.add("isPinkyEdible");
+		//labels.add("isSueEdible");
+
+		labels.add("isBlinkyVulnerable");
+		labels.add("isInkyVulnerable");
+		labels.add("isPinkyVulnerable");
+		labels.add("isSueVulnerable");
+
 		labels.add("blinkyDist");
 		labels.add("inkyDist");
 		labels.add("pinkyDist");
 		labels.add("sueDist");
 		labels.add("directionChosen");
+	}
+
+	public String vulnerableTag(boolean isEdible, DiscreteTag tag) {
+		String returnTagString = null;
+		ArrayList<DiscreteTag> tags = new ArrayList<>(Arrays.asList(DiscreteTag.values()));
+		tags.indexOf(tag);
+		ArrayList<DiscreteTag> revTags = new ArrayList<>();
+		for (int i = tags.size() - 1; i >= 0; i--) {
+			revTags.add(tags.get(i));
+		}
+
+		if (isEdible) {
+			returnTagString = (String.valueOf(revTags.get(tags.indexOf(tag))));
+		} else {
+			returnTagString = (DiscreteTag.VERY_LOW.name());
+		}
+		return returnTagString;
 	}
 
 
@@ -68,6 +118,7 @@ public class ID3DataTuple extends DataTuple {
 	DiscreteTag ID3inkyDist = null;
 	DiscreteTag ID3pinkyDist = null;
 	DiscreteTag ID3sueDist = null;
+
 
 
 
@@ -121,6 +172,7 @@ public class ID3DataTuple extends DataTuple {
 		this.currentLevelTime = game.getCurrentLevelTime();
 		this.numOfPillsLeft = game.getNumberOfActivePills();
 		this.numOfPowerPillsLeft = game.getNumberOfActivePowerPills();
+
 
 
 		if (game.getGhostLairTime(GHOST.BLINKY) == 0) {
