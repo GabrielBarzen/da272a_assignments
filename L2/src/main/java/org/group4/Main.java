@@ -28,7 +28,7 @@ public class Main {
 
         KnapsackSolver solver = new KnapsackSolver();
         solver.multipleKnapsackGreedy(items, Arrays.asList(ksArr));
-        solver.multipleKnapsackNeighbour(Arrays.asList(ksArr));
+        solver.multipleKnapsackNeighbour(new ArrayList<>(Arrays.asList(ksArr)));
 
     }
 }

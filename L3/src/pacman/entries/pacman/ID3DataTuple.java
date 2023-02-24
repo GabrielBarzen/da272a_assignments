@@ -31,7 +31,7 @@ public class ID3DataTuple extends DataTuple {
 
 		attributes.add(ID3currentScore.toString());
 		//attributes.add(ID3currentLevelTime.toString());
-		attributes.add(ID3numOfPillsLeft.toString());
+		//attributes.add(ID3numOfPillsLeft.toString());
 		attributes.add(ID3numOfPowerPillsLeft.toString());
 
 
@@ -56,7 +56,7 @@ public class ID3DataTuple extends DataTuple {
 
 		labels.add("currentScore");
 		//labels.add("currentLevelTime");
-		labels.add("numOfPillsLeft");
+		//labels.add("numOfPillsLeft");
 		labels.add("numOfPowerPillsLeft");
 
 		//labels.add("isBlinkyEdible");
@@ -88,7 +88,7 @@ public class ID3DataTuple extends DataTuple {
 		if (isEdible) {
 			returnTagString = (String.valueOf(revTags.get(tags.indexOf(tag))));
 		} else {
-			returnTagString = (DiscreteTag.VERY_LOW.name());
+			returnTagString = (DiscreteTag.LOW.name());
 		}
 		return returnTagString;
 	}

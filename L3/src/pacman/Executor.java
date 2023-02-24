@@ -79,8 +79,8 @@ public class Executor
 		
 		//run game for data collection
 
-		//exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
-		exec.runGame(new ID3Controller2(),new StarterGhosts(),visual,32);
+		exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
+		//exec.runGame(new ID3Controller2(),new StarterGhosts(),visual,32);
 
 	}
 	
@@ -139,7 +139,6 @@ public class Executor
 		
 		while(!game.gameOver())
 		{
-			System.out.println("{");
 			MOVE pacmove = pacManController.getMove(game.copy(),-1);
 			EnumMap<GHOST, MOVE> ghostmove = ghostController.getMove(game.copy(),-1);
 
@@ -151,7 +150,6 @@ public class Executor
 	        
 	        if(visual)
 	        	gv.repaint();
-			System.out.println("}");
 		}
 	}
 	

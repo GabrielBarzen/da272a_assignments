@@ -1,6 +1,6 @@
 package org.group4;
 
-public class Item {
+public class Item implements Cloneable {
     private double value;
     private double weight;
 
@@ -27,5 +27,11 @@ public class Item {
     @Override
     public String toString() {
         return String.format("Item(value=%f, weight=%f, ratio=%f)", value, weight, ratio);
+    }
+
+    @Override
+    protected Object clone() {
+        Item item = new Item(this.value,this.weight);
+        return item;
     }
 }

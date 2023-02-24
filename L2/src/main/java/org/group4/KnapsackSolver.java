@@ -3,6 +3,7 @@ package org.group4;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class KnapsackSolver {
@@ -64,12 +65,15 @@ public class KnapsackSolver {
 
 
 
+        double totalutil = 0;
         System.out.println("-------------");
         System.out.println(">>Knapsacks<<");
         for (Knapsack knapsack : ksArr) {
             System.out.println(knapsack);
+            totalutil += knapsack.utility();
         }
         System.out.println("-------------");
+        System.out.println("Total utility: " + totalutil);
         System.out.println("Removed items: " + removedItems);
         System.out.println("Remaining items: " + items);
         System.out.println("Sorted Remaining items on weight: " + items.stream().sorted((a, b) -> (int) (a.getWeight() - b.getWeight()))
@@ -80,10 +84,51 @@ public class KnapsackSolver {
         return ksArr;
     }
 
-    public  void multipleKnapsackNeighbour(List<Knapsack> ksArr) {
-        for (Knapsack knapsack : ksArr) {
-            System.out.println("utility : " + knapsack.utility());
+    public void multipleKnapsackNeighbour(ArrayList<Knapsack> ksArr) {
+        Random rand = new Random();
+        int iter = 0;
+        while (iter < 10000) {
+            int currKnapsack = rand.nextInt(ksArr.size());
+            Knapsack prevKnapsack = ksArr.get(currKnapsack);
+            Knapsack knapsack = (Knapsack) ksArr.get(currKnapsack).clone();
+            double preUtility = knapsack.utility();
+            Item removedItem = knapsack.removeItem(rand.nextInt(knapsack.size()));
+            for (Item remainingItem : remainingItems) {
+                knapsack.addItem(remainingItem);
+                if(!knapsack.isFeasible()) {
+                    knapsack.removeItem(remainingItem);
+                }
+            }
+
+            if(knapsack.utility() > preUtility) {
+                ksArr.remove(prevKnapsack);
+                ksArr.add(knapsack);
+                remainingItems.add(removedItem);
+            }
+
+            iter++;
         }
+
+
+        double totalutil = 0;
+        System.out.println("-------------");
+        System.out.println(">>Knapsacks<<");
+        for (Knapsack knapsack : ksArr) {
+            System.out.println(knapsack);
+            totalutil += knapsack.utility();
+        }
+        System.out.println("-------------");
+        System.out.println("Total utility: " + totalutil);
+        System.out.println("Remaining items: " + remainingItems);
+
+
+
+        //Ta bort slumpmässigt item från slumpmässig knapsack
+        //Shuffla tills item får plats
+        //kolla utility
+        //spara om ny utility > gammal utility
+        
+
 
     }
 

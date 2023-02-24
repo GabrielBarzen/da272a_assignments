@@ -2,18 +2,16 @@ package org.group4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Knapsack {
+public class Knapsack extends ArrayList<Item> implements Cloneable {
     private double capacity;
-    private List<Item> items;
+
 
     public Knapsack(double capacity) {
         this.capacity = capacity;
-        this.items = new ArrayList<>();
-
     }
 
     public void addItem(Item item) {
-        items.add(item);
+        this.add(item);
 
     }
 
@@ -22,15 +20,19 @@ public class Knapsack {
     }
 
     public void removeItem(Item item) {
-        items.remove(item);
+        this.remove(item);
+    }
+
+    public Item removeItem(int index) {
+        return this.remove(index);
     }
 
     public double getValue() {
-        return items.stream().mapToDouble(Item::getValue).sum();
+        return this.stream().mapToDouble(Item::getValue).sum();
     }
 
     public double getWeight() {
-        return items.stream().mapToDouble(Item::getWeight).sum();
+        return this.stream().mapToDouble(Item::getWeight).sum();
     }
 
     public boolean isFeasible() {
@@ -38,7 +40,7 @@ public class Knapsack {
     }
 
     public Item removeLast() {
-        return items.remove(items.size()-1);
+        return this.remove(this.size()-1);
     }
 
     public static Knapsack fromItems(List<Item> items, int capacity) {
@@ -53,8 +55,17 @@ public class Knapsack {
     }
 
     @Override
+    public Object clone() {
+        Knapsack cloned = new Knapsack(this.capacity);
+        for (Item item : this) {
+            cloned.add( (Item) item.clone());
+        }
+        return cloned;
+    }
+
+    @Override
     public String toString() {
-        return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, value=%f)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (items.stream().mapToDouble(Item::getWeight).sum()),((items.stream().mapToDouble(Item::getValue).sum())));
+        return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, value=%f)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (this.stream().mapToDouble(Item::getWeight).sum()),((this.stream().mapToDouble(Item::getValue).sum())));
         //return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, items=%s)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (items.stream().mapToDouble(Item::getWeight).sum()), items);
     }
 }
