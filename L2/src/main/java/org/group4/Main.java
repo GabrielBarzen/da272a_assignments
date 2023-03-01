@@ -1,16 +1,21 @@
 package org.group4;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Main {
 
-    private static final int KNAPSACKS = 3;
-    private static final int ITEMS = 30;
-    private static final int ITEMVALUE = 50;
-    private static final int ITEMWEIGHT = 10;
-    private static final int KNAPSACKCAPACITYBOUND = 50;
+    private static final int KNAPSACKS = 30;
+    private static final int ITEMS = 300;
+    private static final int ITEMVALUE = 500;
+    private static final int ITEMWEIGHT = 100;
+    private static final int KNAPSACKCAPACITYBOUND = 500;
 
 
     public static void main(String[] args) {
@@ -27,8 +32,14 @@ public class Main {
         }
 
         KnapsackSolver solver = new KnapsackSolver();
+
         solver.multipleKnapsackGreedy(items, Arrays.asList(ksArr));
+
         solver.multipleKnapsackNeighbour(new ArrayList<>(Arrays.asList(ksArr)));
 
+        solver.saveFile();
+
     }
+
+
 }

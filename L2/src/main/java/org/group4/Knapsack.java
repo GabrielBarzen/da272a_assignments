@@ -5,7 +5,6 @@ import java.util.List;
 public class Knapsack extends ArrayList<Item> implements Cloneable {
     private double capacity;
 
-
     public Knapsack(double capacity) {
         this.capacity = capacity;
     }
@@ -51,7 +50,7 @@ public class Knapsack extends ArrayList<Item> implements Cloneable {
         return knapsack;
     }
     public double utility() {
-        return (getValue() / (getCapacity() - getWeight()))/getCapacity() ;
+        return getValue() / getCapacity();
     }
 
     @Override
@@ -65,7 +64,7 @@ public class Knapsack extends ArrayList<Item> implements Cloneable {
 
     @Override
     public String toString() {
-        return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, value=%f)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (this.stream().mapToDouble(Item::getWeight).sum()),((this.stream().mapToDouble(Item::getValue).sum())));
+        return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, value=%f, utility=%f, num items=%d)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (this.stream().mapToDouble(Item::getWeight).sum()),((this.stream().mapToDouble(Item::getValue).sum())),utility(),this.size());
         //return String.format("Knapsack(feasible=%b capacity=%f, remaining capacity=%f, filled=%f, items=%s)", this.isFeasible(),capacity, this.getCapacity()-this.getWeight(), (items.stream().mapToDouble(Item::getWeight).sum()), items);
     }
 }

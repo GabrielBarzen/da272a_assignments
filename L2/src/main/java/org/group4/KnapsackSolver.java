@@ -1,5 +1,8 @@
 package org.group4;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -7,11 +10,16 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class KnapsackSolver {
+
+    public static List<Knapsack> knapsacksListGreedy;
+    public static List<Knapsack> knapsacksListNeighbour;
     public  Knapsack knapsackGreedy(List<Item> items, int capacity) {
         // Sort the items in decreasing order of their value-to-weight ratio
         items = items.stream()
                 .sorted((a, b) -> (int) ((b.getValue() / b.getWeight()) - (a.getValue() / a.getWeight())))
                 .collect(Collectors.toList());
+
+
 
         // Create a knapsack from the items and add items to it until it is no longer feasible to do so
         Knapsack knapsack = Knapsack.fromItems(items, capacity);
@@ -35,6 +43,7 @@ public class KnapsackSolver {
         ksArr = ksArr.stream()
                 .sorted(Comparator.comparingDouble(Knapsack::getCapacity))
                 .collect(Collectors.toList());
+
 
 
         removedItems = new ArrayList<>();
@@ -81,34 +90,93 @@ public class KnapsackSolver {
 
         remainingItems = items;
 
+        knapsacksListGreedy = ksArr;
+
+
+
         return ksArr;
     }
+
+    public void saveFile() {
+        BufferedWriter bw = null;
+        File file = new File("C:\\Users\\Workstation\\Desktop\\Plugg\\AI\\da272a_assignments\\L2\\src\\main\\data\\outData.txt");
+
+        double totalutil = 0;
+
+        for (Knapsack knapsack : knapsacksListGreedy) {
+            System.out.println(knapsack);
+            totalutil += knapsack.utility();
+        }
+
+        try {
+            bw = new BufferedWriter(new FileWriter(file));
+            for (Knapsack knapsack : knapsacksListGreedy) {
+                bw.write("Knapsack: " + knapsacksListGreedy.indexOf(knapsack) + "; ");
+                bw.write("Utility: " + knapsack.utility());
+                bw.write("\n");
+                for (Item item : knapsack) {
+                    bw.write(item + "; ");
+                }
+                bw.write("\n");
+            }
+
+            bw.write("Total util: " + totalutil);
+            bw.write("\n");
+
+            for (Knapsack knapsack : knapsacksListNeighbour) {
+                bw.write("Knapsack: " + knapsacksListNeighbour.indexOf(knapsack) + "; ");
+                bw.write("Utility: " + knapsack.utility());
+                bw.write("\n");
+                for (Item item : knapsack) {
+                    bw.write(item + "; ");
+                }
+                bw.write("\n");
+            }
+
+            bw.write("Total util: " + totalutil);
+            bw.write("\n");
+
+            bw.flush();
+
+        } catch (IOException e) {
+            System.out.println("shit went wrong my dude");
+        }
+    }
+
 
     public void multipleKnapsackNeighbour(ArrayList<Knapsack> ksArr) {
         Random rand = new Random();
         int iter = 0;
-        while (iter < 10000) {
+        while (iter < 1000000) {
             int currKnapsack = rand.nextInt(ksArr.size());
             Knapsack prevKnapsack = ksArr.get(currKnapsack);
             Knapsack knapsack = (Knapsack) ksArr.get(currKnapsack).clone();
             double preUtility = knapsack.utility();
             Item removedItem = knapsack.removeItem(rand.nextInt(knapsack.size()));
+            List<Item> saveRemainingItem = new ArrayList<>();
             for (Item remainingItem : remainingItems) {
                 knapsack.addItem(remainingItem);
+                saveRemainingItem.add(remainingItem);
                 if(!knapsack.isFeasible()) {
                     knapsack.removeItem(remainingItem);
+                    saveRemainingItem.remove(remainingItem);
                 }
             }
+
 
             if(knapsack.utility() > preUtility) {
                 ksArr.remove(prevKnapsack);
                 ksArr.add(knapsack);
+                for (Item item : saveRemainingItem) {
+                    remainingItems.remove(item);
+                }
                 remainingItems.add(removedItem);
             }
 
             iter++;
         }
 
+        knapsacksListNeighbour = ksArr;
 
         double totalutil = 0;
         System.out.println("-------------");
